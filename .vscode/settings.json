@@ -1,0 +1,15 @@
+{
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "editor.formatOnSave": true,
+    "editor.rulers": [
+        78,
+        {
+            "column": 120, // workspace limit.
+            "color": "#8B0000"
+        },
+    ],
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": "explicit" // For Isort
+    }
+}

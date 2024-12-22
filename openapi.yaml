@@ -1,0 +1,72 @@
+---
+openapi: 3.1.1
+info:
+  version: 1.0.0
+  title: Groq
+  termsOfService: https://groq.com/terms-of-use/
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  description: >
+    This is a Groq OpenAPI specification to demonstrate OpenAPI Codegen
+    capabilities.
+
+    # Introduction
+
+    Groq provides a Python, and a JavaScript client library to interact with
+    the Groq REST API.
+
+    The goal is to port the Groq REST API to OpenAPI 3.1.1 specification to be
+    able to generate client libraries in multiple languages.
+externalDocs:
+  description: "Groq API referenece"
+  url: "https://console.groq.com/docs/api-reference"
+tags:
+  - name: Models
+    description: "Example operations reserved for administrators."
+servers:
+  - url: https://api.groq.com/openapi/v1
+paths:
+  "/models":
+    get:
+      summary: List models
+      responses:
+        "200":
+          description: A list of models
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Models'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    Models:
+      type: object
+      properties:
+        object:
+          type: string
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Model'
+    Model:
+      type: object
+      properties:
+        id:
+          type: string
+        object:
+          type: string
+        created:
+          type: integer
+        owned_by:
+          type: string
+        active:
+          type: boolean
+        context_window:
+          type: integer
+        public_apps:
+          type: string

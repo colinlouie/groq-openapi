@@ -1,0 +1,13 @@
+[tool.isort]
+profile = "black"
+
+sections = ["FUTURE", "STDLIB", "THIRDPARTY", "GENERATED", "FIRSTPARTY", "LOCALFOLDER"]
+
+import_heading_stdlib = "Standard libraries"
+import_heading_thirdparty = "Third-party libraries"
+import_heading_generated = "Generated libraries"
+import_heading_firstparty = "Internal libraries"
+import_heading_localfolder = "Local folder"
+
+known_generated = ["groq_client"]
+skip_gitignore = true
